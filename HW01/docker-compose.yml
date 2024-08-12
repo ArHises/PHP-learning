@@ -1,25 +1,21 @@
 version: "3.8"
-
 services:
     nginx:
         image: nginx:latest
         ports:
-            - "80:80"
+            - "8080:80"
         volumes:
-            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
             - ./html:/var/www/html
+            - ./nginx:/etc/nginx/default.conf
         depends_on:
             - php-fpm
 
     php-fpm:
-        build: .
+        image: php:8.2-fpm
         volumes:
             - ./html:/var/www/html
-        container_name: php-fpm
 
     php-cli:
-        build: .
-        entrypoint: ["php"]
+        image: php:8.2-cli
         volumes:
             - ./html:/var/www/html
-        container_name: php-cli
