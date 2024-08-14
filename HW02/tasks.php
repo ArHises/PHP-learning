@@ -13,7 +13,7 @@ function calculate(int $a, int $b, string $op): int {
         if ($b === 0) {
             throw new Exception('Division by zero is not allowed');
         }
-        return intdiv($a, $b); // Use intdiv to ensure an integer return value
+        return intdiv($a, $b);
     } else {
         throw new Exception('Invalid operator');
     }
@@ -100,7 +100,7 @@ if(false){ // to test switch to true
 // Task 05:
 
 function power($val, $pow) {
-    // Базовый случай: любая степень 0 равна 1
+    // любая степень 0 равна 1
     if ($pow === 0) {
         return 1;
     }
@@ -131,8 +131,8 @@ function getDeclension($number, $one, $two, $five) {
 }
 
 function currentTime() {
-    $hours = (int)date('H'); // Текущий час
-    $minutes = (int)date('i'); // Текущие минуты
+    $hours = (int)date('H');
+    $minutes = (int)date('i');
 
     $hourDeclension = getDeclension($hours, 'час', 'часа', 'часов');
     $minuteDeclension = getDeclension($minutes, 'минута', 'минуты', 'минут');
