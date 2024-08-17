@@ -29,6 +29,7 @@ function parseCommand() : string {
             'clear' => 'clearFunction',
             'read-profiles' => 'readProfilesDirectory',
             'read-profile' => 'readProfile',
+            'today-bd' => 'todayBDFunction',
             'help' => 'helpFunction',
             default => 'helpFunction'
         };

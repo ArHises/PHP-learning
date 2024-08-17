@@ -1,5 +1,37 @@
 <?php
 
+function todayBDFunction(array $config) { 
+    $address = $config['storage']['address'];
+    $currentDate = date("d-m-Y");
+
+    if (file_exists($address) && is_readable($address)) {
+        $file = fopen($address, "rb");
+        $allUsers = [];
+
+        while (($row = fgetcsv($file, 100, ",")) !== FALSE) {
+            $allUsers[] = $row;
+        }
+
+        fclose($file);
+
+        $bdUsers = [];
+
+        foreach ($allUsers as $user) {
+            $userbd = explode("-", $user[1]);
+            $currentDM = explode("-", $currentDate);
+
+            if ($userbd[0] == $currentDM[0] && $userbd[1] == $currentDM[1]) {
+                $bdUsers[] = implode(", ", $user);
+            }
+        }
+
+        return implode("\n", $bdUsers);
+    } else {
+        return handleError("Файл не существует");
+    }
+}
+
+
 // function readAllFunction(string $address) : string {
 function readAllFunction(array $config) : string {
     $address = $config['storage']['address'];
@@ -27,7 +59,12 @@ function addFunction(array $config) : string {
 
     $name = readline("Введите имя: ");
     $date = readline("Введите дату рождения в формате ДД-ММ-ГГГГ: ");
-    $data = $name . ", " . $date . "\r\n";
+
+    if(!validateDate($date)) {
+        return handleError("Неверный формат даты. Дата должна быть в формате ДД-ММ-ГГГГ");
+    }
+
+    $data = "$name,  $date\r\n";
 
     $fileHandler = fopen($address, 'a');
 
