@@ -18,10 +18,10 @@ function deleteFunction(array $config) {
         foreach ($allUsers as $user) {
 
             if ($user[0] !== $name) {
-                $newList[] = implode(", ", $user);
+                $newList[] = implode(",", $user);
             }
         }
-        if (empty($newList)) {
+        if (count($newList) === count($allUsers)) {
             return handleError("There is no such user \n");
         }
 
