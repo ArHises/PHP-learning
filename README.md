@@ -7,3 +7,7 @@
 ### HW02:
 
 -   Syntaxis specificality.
+
+### HW03:
+
+-   Work with files.
