@@ -1,5 +1,42 @@
 <?php
 
+function deleteFunction(array $config) { 
+    $address = $config['storage']['address'];
+    $name = readline("Введите имя: ");
+
+    if (file_exists($address) && is_readable($address)) {
+        $file = fopen($address, "rb");
+        $allUsers = [];
+
+        while (($row = fgetcsv($file, 100, ",")) !== FALSE) {
+            $allUsers[] = $row;
+        }
+        fclose($file);
+
+        $newList = [];
+
+        foreach ($allUsers as $user) {
+
+            if ($user[0] !== $name) {
+                $newList[] = implode(", ", $user);
+            }
+        }
+        if (empty($newList)) {
+            return handleError("There is no such user \n");
+        }
+
+        $file = fopen($address, "wb");
+        foreach ($newList as $row) {
+            fwrite($file, $row. "\n");
+        }
+
+        return implode("\n", $newList) . "\n user: $name has been deleted! \n";
+    } else {
+        return handleError("Файл не существует");
+    }
+}
+
+
 function todayBDFunction(array $config) { 
     $address = $config['storage']['address'];
     $currentDate = date("d-m-Y");

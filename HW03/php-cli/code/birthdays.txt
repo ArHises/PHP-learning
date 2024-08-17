@@ -1,10 +1,7 @@
-Mark Goshan, 05-05-1991
-Sarah Lane, 12-03-1985
-John Smith, 22-11-1978
-Emily Davis, 17-08-1990
-Michael Brown, 15-08-1988
-Jessica White, 03-12-1992
-David Wilson, 17-08-1983
-Laura Taylor, 25-04-1987
-Daniel Johnson, 19-02-1994
-Sophia Martinez, 07-06-1989
+John Smith,    22-11-1978
+Emily Davis,    17-08-1990
+Michael Brown,    15-08-1988
+Jessica White,    03-12-1992
+Laura Taylor,    25-04-1987
+Daniel Johnson,    19-02-1994
+Sophia Martinez,    07-06-1989
