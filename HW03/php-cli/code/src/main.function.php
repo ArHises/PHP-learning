@@ -31,6 +31,7 @@ function parseCommand() : string {
             'read-profile' => 'readProfile',
             'today-bd' => 'todayBDFunction',
             'delete' => 'deleteFunction',
+            'sort-by-name' =>'sortByName',
             'help' => 'helpFunction',
             default => 'helpFunction'
         };

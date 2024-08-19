@@ -1,5 +1,39 @@
 <?php
 
+// function compareByName($a, $b) {
+//     return strcmp($a[0], $b[0]);
+// }
+
+function sortByName(array $config) {
+    $address = $config['storage']['address'];
+
+    if (file_exists($address) && is_readable($address)) {
+        $file = fopen($address, "rb");
+        $allUsers = [];
+        while (($row = fgetcsv($file, 100, ",")) !== FALSE) {
+            $allUsers[] = $row;
+        }
+        fclose($file);
+
+        $compareByName = function($a, $b) {
+            return strcmp($a[0], $b[0]); // compare only names of the users
+        };
+        usort($allUsers, $compareByName);
+
+        $file = fopen($address, "wb");
+        foreach ($allUsers as $row) {
+            fwrite($file, implode(",", $row) . "\n");
+        }
+        fclose($file);
+
+        return "\nСписок отсортирован по имени\n";
+    } else {
+        return "Файл не существует или не доступен для чтения.";
+    }
+}
+
+
+
 function deleteFunction(array $config) { 
     $address = $config['storage']['address'];
     $name = readline("Введите имя: ");

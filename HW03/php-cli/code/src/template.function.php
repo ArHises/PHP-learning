@@ -19,6 +19,7 @@ function handleHelp() : string {
     $help .= "read-profile - вывести профиль выбранного пользователя \r\n";
     $help .= "today-bd - Show all users who has bd \r\n";
     $help .= "delete - delete user by name \r\n";
+    $help .= "sort-by-name - sorting the file by names \r\n";
     $help .= "help - помощь \r\n";
 
     return $help;
