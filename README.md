@@ -2,12 +2,16 @@
 
 ### HW01:
 
--   Create environment.
+- Create environment.
 
 ### HW02:
 
--   Syntaxis specificality.
+- Syntaxis specificality.
 
 ### HW03:
 
--   Work with files.
+- Work with files.
+
+### HW04:
+
+- OOP and static.

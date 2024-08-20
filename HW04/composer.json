@@ -1,0 +1,15 @@
+{
+    "name": "arhises/hw04",
+    "description": "hw04",
+    "autoload": {
+        "psr-4": {
+            "Arhises\\Hw04\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "arhises"
+        }
+    ],
+    "require": {}
+}
